@@ -1,0 +1,27 @@
+USE CanaryAirlines
+
+Delete FROM Aircraft
+WHERE AircraftCode = 'CCC'
+OR AircraftCode = 'BBB';
+
+SELECT * FROM Aircraft
+where AircraftCode = 'A11';
+
+INSERT INTO Aircraft VALUES
+('A11','Lockheed Superliner',0,'600'),
+('B22','British Aerospace X11',0,'350'),
+('C33','boeing Freightmaster',1,'0');
+
+UPDATE Aircraft
+SET Seating = '500'
+WHERE AircraftCode = 'A11';
+
+UPDATE Aircraft
+SET FreightOnly = 0, Seating = '25'
+where AircraftCode = 'C33';
+
+DELETE FROM Aircraft
+WHERE AircraftCode = 'A11'
+OR AircraftCode = 'B22'
+OR AircraftCode = 'C33';
+
