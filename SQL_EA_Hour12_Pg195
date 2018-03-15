@@ -1,0 +1,25 @@
+use CanaryAirlines;
+
+--exercise 1
+
+select getdate();
+
+--there is no hiredate field to select - re: exercise 2
+
+--exercise 3, used passengers table because employee table doesn't have a date field
+
+select Passengers.PassengerID, YEAR(Birthdate) AS YEAR_BORN, MONTH(Birthdate) AS MONTH_BORN 
+from Passengers;
+
+--exercise 4
+
+SELECT Passengers.PassengerID, Birthdate, GETDATE()
+from Passengers;
+
+--EXERCISE 5
+
+SELECT Passengers.PassengerID, DAY(Birthdate), GETDATE()
+from Passengers;
+
+--EXERCISE 6
+

@@ -1,0 +1,22 @@
+Use CanaryAirlines;
+
+-- EXERCISE 2
+UPDATE Passengers
+SET PASSENGERS.FirstName = 'RYAN', PassengeRS.LastName = 'STEPHENS'
+WHERE PassengerID = (SELECT PassengerID FROM Trips
+					WHERE TripID = 3120);
+
+-- NO DATA PRESENT IN THE TRIPS TABLE
+SELECT * FROM Trips;
+
+--EXERCISE 3
+
+SELECT COUNT(Passengers.CountryCode) FROM Passengers
+WHERE CountryCode IN (SELECT CountryCode FROM Trips WHERE Leaving = 2013-04-07)
+GROUP BY Passengers.CountryCode;
+
+--EXERCISE 4
+
+SELECT Passengers.PassengerID FROM Passengers
+WHERE PassengerID IN (SELECT PassengerID FROM Trips
+						WHERE Trips.Returning - TRIPS.Leaving < 21);

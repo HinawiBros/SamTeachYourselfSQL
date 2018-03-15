@@ -1,0 +1,50 @@
+Use CanaryAirlines;
+
+Select * From Employees
+
+--Exercise 1
+	--a
+Select AVG(Salary) from Employees;
+
+	--b
+Select MAX(Payrate) from Employees;
+
+	--c
+Select SUM(Salary) from Employees;
+
+	--d
+Select MIN(Payrate) from Employees;
+
+	--e
+Select Count(*) from Employees;
+
+--Exercise 2
+
+Select Count(*) from Employees
+where LastName LIKE 'G%';
+
+--Exercise 3
+
+Select  Employees.City,
+		MIN(Payrate) AS MinPayRate, MIN(Salary) AS MinSalary,
+		MAX(Payrate) AS MinPayRate, MAX(Salary) AS MinSalary FROM Employees
+GROUP BY City;
+
+--Exercise 4
+
+Select TOP 1 Employees.FirstName, Employees.LastName from Employees
+order by LastName;
+
+Select TOP 1 Employees.FirstName, Employees.LastName from Employees
+order by LastName DESC;
+
+--Exercise 5
+
+Select Employees.FirstName, AVG(Employees.LastName) from Employees
+order by LastName;
+
+--Exercise 6
+
+SELECT (SUM(Employees.Salary) / COUNT(*)) AS AVGSALARY FROM Employees;
+
+

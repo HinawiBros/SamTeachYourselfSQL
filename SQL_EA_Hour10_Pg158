@@ -1,0 +1,51 @@
+use CanaryAirlines;
+
+--Exercise 1
+
+Select City from Employees;
+
+--Exercise 2
+
+Select City, Count(*)
+FROM Employees
+GROUP BY CITY;
+
+--Exercise 3
+
+Select City, Count(*) AS CITY_COUNT
+FROM Employees
+GROUP BY CITY
+HAVING COUNT(*) > 15;
+
+--Exercise 4
+
+Select City, Count(*) AS CITY_COUNT
+FROM Employees
+GROUP BY CITY
+HAVING COUNT(*) > 15
+ORDER BY CITY_COUNT DESC;
+
+--Exercise 5
+
+SELECT Position, AVG(Employees.PayRate) AS AvgPayrate, AVG(Employees.Salary) AS AvgSalary
+FROM Employees
+GROUP BY Position;
+
+--Exercise 6
+
+SELECT Position, AVG(Employees.Salary) AS AvgSalary
+FROM Employees
+GROUP BY Position
+HAVING AVG(Employees.Salary) > 40000;
+
+--Exercise 7
+
+SELECT City, Position, AVG(Employees.Salary) AS AvgSalary
+FROM Employees
+where Salary > 40000
+GROUP BY  City, Position;
+
+SELECT City, Position, AVG(Employees.Salary) AS AvgSalary
+FROM Employees
+GROUP BY  City, Position
+Having AVG(Employees.Salary) > 40000;

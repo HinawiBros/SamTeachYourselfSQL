@@ -1,0 +1,66 @@
+USE CanaryAirlines;
+
+--EXERCISE 1
+
+SELECT * FROM Routes
+WHERE RouteCode LIKE 'IND%'
+ORDER BY RouteCode ASC, Distance DESC;
+
+--EXERCISE 2
+
+SELECT * FROM Routes
+WHERE RouteCode LIKE 'IND%'
+AND Distance BETWEEN 1000 AND 2000
+ORDER BY RouteCode ASC, Distance DESC;
+
+--EXERCISE 3
+
+SELECT * FROM Routes
+WHERE RouteCode LIKE 'IND%'
+AND (Distance >= 1000 AND Distance <= 2000)
+ORDER BY RouteCode ASC, Distance DESC;
+
+--EXERCISE 4
+
+SELECT * FROM Routes
+WHERE RouteCode LIKE 'IND%'
+AND Distance NOT BETWEEN 1000 AND 2000
+ORDER BY RouteCode ASC, Distance DESC;
+
+SELECT * FROM Routes
+WHERE RouteCode LIKE 'IND%'
+AND (Distance < 1000 OR Distance > 2000)
+ORDER BY RouteCode ASC, Distance DESC;
+
+--EXERCISE 5
+
+SELECT ROUTES.TravelTime * Routes.FuelCostPerMinute AS TOTALCOST, 
+			Routes.RouteCode, ROUTES.Distance, Routes.TravelTime FROM ROUTES
+WHERE RouteCode LIKE 'IND%'
+ORDER BY TOTALCOST DESC;
+
+--EXERCISE 6
+
+SELECT (ROUTES.TravelTime * Routes.FuelCostPerMinute * 1.10) AS TOTALCOST, 
+			Routes.RouteCode, ROUTES.Distance, Routes.TravelTime FROM ROUTES
+WHERE RouteCode LIKE 'IND%'
+ORDER BY TOTALCOST DESC;
+
+--EXERCISE 7
+
+SELECT (ROUTES.TravelTime * Routes.FuelCostPerMinute * 1.10) AS TOTALCOST, 
+			Routes.RouteCode, ROUTES.Distance, Routes.TravelTime FROM ROUTES
+WHERE RouteCode IN ('IND-MFK', 'IND-MYR', 'IND-MDA')
+ORDER BY TOTALCOST DESC;
+
+--EXERCISE 8
+
+SELECT (ROUTES.TravelTime * Routes.FuelCostPerMinute * 1.10) AS TOTALCOST,
+		(ROUTES.TravelTime * Routes.FuelCostPerMinute * 1.10) / Routes.Distance AS COST_PER_MILE,
+			Routes.RouteCode, ROUTES.Distance, Routes.TravelTime 
+FROM ROUTES
+WHERE RouteCode IN ('IND-MFK', 'IND-MYR', 'IND-MDA')
+ORDER BY TOTALCOST DESC;
+
+
+
